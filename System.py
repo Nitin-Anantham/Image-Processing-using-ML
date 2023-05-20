@@ -25,7 +25,7 @@ def convert1(inp_img):
     return(img_gray)
     
 def convert2(inp_img1,d1,d2):
-    img_resized = inp_img1.resize((d1,d2))
+    img_resized = inp_img1.resize(d1,d2)
     return(img_resized)
     
 
@@ -63,7 +63,7 @@ if (selected == 'Resize Image'):
     st.title('Resize Images using ML')
     st.write("This Web App is to Resize your Images")
     
-    file_image1 = st.sidebar.file_uploader("Upload Your Photo",type = ['jpeg','jpg','png'])
+    file_image1 = st.sidebar.file_uploader("Upload Your Photo to be resized",type = ['jpeg','jpg','png'])
         
     if file_image1 is None:
            st.write("Please Upload Your Image File")
@@ -73,14 +73,13 @@ if (selected == 'Resize Image'):
     with col1:
         d1 = st.text_input("Enter Height")
        
-    
     with col2:
          d2 = st.text_input("Enter Width")
     
     if st.button('Resize'): 
     
         img1 = Image.open(file_image1)
-        resized_image = convert2((np.array(img1) ,200, 200))
+        resized_image = convert2(np.array(img1) ,200, 200)
     
         st.image(resized_image, caption='processed image')
         st.success("Processing Completed")
