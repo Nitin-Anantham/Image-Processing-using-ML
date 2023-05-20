@@ -46,7 +46,7 @@ if (selected == 'Grey Scale Image'):
     
     if st.button('Convert'):
         img = Image.open(file_image)
-        grayscale_image = convert(np.array(input_img))
+        grayscale_image = convert(input_img)
         
         st.image(grayscale_image, caption='processed image')
         st.success("Processing Completed")
