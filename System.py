@@ -80,7 +80,7 @@ if (selected == 'Resize Image'):
     if st.button('Resize'): 
     
         img1 = Image.open(file_image1)
-        resized_image = convert2((np.array(img1) ,d1, d2))
+        resized_image = convert2((np.array(img1) ,200, 200))
     
         st.image(resized_image, caption='processed image')
         st.success("Processing Completed")
