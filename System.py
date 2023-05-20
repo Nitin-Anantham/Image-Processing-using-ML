@@ -25,7 +25,7 @@ def convert1(inp_img):
     return(img_gray)
     
 def convert2(inp_img,d1,d2):
-    img_resized = inp_img.resize((d1,d2))
+    img_resized = inp_img.resize((200,200))
     return(img_resized)
     
 
