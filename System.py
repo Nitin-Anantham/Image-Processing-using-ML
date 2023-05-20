@@ -20,7 +20,7 @@ with st.sidebar:
     
                         # default_index = 0 , 
     
- def convert(inp_img):
+def convert(inp_img):
     img_gray = cv2.cvtColor(inp_img , cv2.COLOR_BGR2GRAY)
     return(img_gray)
     
