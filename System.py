@@ -51,13 +51,13 @@ if (selected == 'Grey Scale Image'):
     
     if st.button('Convert'):
         img = Image.open(file_image)
-        grayscale_image = convert(np.array(img))
+        grayscale_image = convert(np.array(img))   #Converting Image to Numpy Array
         
         st.image(grayscale_image, caption='processed image')
         st.success("Processing Completed")
      
     if st.button("Download Sketch Images"):
-        im_pil = Image.fromarray(grayscale_image)
+        im_pil = Image.fromarray(grayscale_image)  #Displaying Image From Numpy Array
         im_pil.save('final_image.jpeg')
         st.write('Download completed')
 
@@ -76,13 +76,15 @@ if (selected == 'Resize Image'):
     
     with col1:
         d1 = st.text_input("Enter Height")
-        d2 = st.text_input("Enter Width")
+       
     
+    with col2:
+         d2 = st.text_input("Enter Width")
     
     if st.button('Resize'): 
     
         img = Image.open(file_image)
-        resized_image = convert2(img,d1,d2)
+        resized_image = convert2(np.array(img),d1,d2)
     
         st.image(resized_image, caption='processed image')
         st.success("Processing Completed")
