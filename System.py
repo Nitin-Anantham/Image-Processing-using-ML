@@ -43,9 +43,10 @@ if (selected == 'Grey Scale Image'):
     if st.button('Convert'):
         img = cv2.imread(link)
         grayscale_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-    st.success(cv2_imshow(grayscale_image))
-
+        image = cv2_imshow(grayscale_image)
+        st.image(image, caption='processed image')
+        st.success("Processing Completed")
+     
 
 
 
