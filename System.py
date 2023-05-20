@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 
 
+
 # sidebar for navigation()
 with st.sidebar:
     
@@ -46,7 +47,7 @@ if (selected == 'Grey Scale Image'):
     
     if st.button('Convert'):
         img = Image.open(file_image)
-        grayscale_image = convert(np.array(img))   #Converting Image to Numpy Array
+        grayscale_image = convert1(np.array(img))   #Converting Image to Numpy Array
         
         st.image(grayscale_image, caption='processed image')
         st.success("Processing Completed")
