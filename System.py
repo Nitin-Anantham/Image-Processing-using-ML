@@ -25,7 +25,7 @@ def convert1(inp_img):
     return(img_gray)
     
 def convert2(inp_img1,d1,d2):
-    img_resized = inp_img1.resize(d1,d2)
+    img_resized = inp_img1.resize((d1,d2))
     return(img_resized)
     
 
@@ -79,7 +79,7 @@ if (selected == 'Resize Image'):
     if st.button('Resize'): 
     
         img1 = Image.open(file_image1)
-        resized_image = convert2(np.array(img1) ,200, 200)
+        resized_image = convert2(img1 ,200, 200)
     
         st.image(resized_image, caption='processed image')
         st.success("Processing Completed")
