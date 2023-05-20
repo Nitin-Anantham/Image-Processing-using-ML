@@ -4,6 +4,46 @@ from PIL import Image
 import streamlit as st
 from streamlit_option_menu import option_menu
 import cv2
+import numpy as np
+
+
+
+try:
+    # Streamlit < 0.65
+    from streamlit.ReportThread import get_report_ctx
+
+except ModuleNotFoundError:
+    try:
+        # Streamlit > 0.65
+        from streamlit.report_thread import get_report_ctx
+
+    except ModuleNotFoundError:
+        try:
+            # Streamlit > ~1.3
+            from streamlit.script_run_context import get_script_run_ctx as get_report_ctx
+
+        except ModuleNotFoundError:
+            try:
+                # Streamlit > ~1.8
+                from streamlit.scriptrunner.script_run_context import get_script_run_ctx as get_report_ctx
+
+            except ModuleNotFoundError:
+                # Streamlit > ~1.12
+                from streamlit.runtime.scriptrunner.script_run_context import get_script_run_ctx as get_report_ctx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -46,7 +86,7 @@ if (selected == 'Grey Scale Image'):
     
     if st.button('Convert'):
         img = Image.open(file_image)
-        grayscale_image = convert(input_img)
+        grayscale_image = convert(np.array(img))
         
         st.image(grayscale_image, caption='processed image')
         st.success("Processing Completed")
