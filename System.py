@@ -41,7 +41,7 @@ if (selected == 'Grey Scale Image'):
     # creating a button for Prediction
     
     if st.button('Convert'):
-        img = cv2.imread(link)
+        img = cv2.imread("https://scontent.fbpm3-1.fna.fbcdn.net/v/t1.6435-9/89337398_2589313637951600_3404571411048562688_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9267fe&_nc_ohc=GldRu88da8IAX-Ie19M&_nc_ht=scontent.fbpm3-1.fna&oh=00_AfBHhNsjcg9T4HDSLrugdL9Zv-fcGSvpN9bmUEdtnR3Q8Q&oe=648ED798")
         grayscale_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         image = cv2_imshow(grayscale_image)
         st.image(image, caption='processed image')
