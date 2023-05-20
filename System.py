@@ -30,7 +30,7 @@ def convert1(inp_img):
     
 def convert2(inp_img,d1,d2):
     img_resized = inp_img.resize((d1,d2))
-    
+    return(img_resized)
     
 
 if (selected == 'Grey Scale Image'):
