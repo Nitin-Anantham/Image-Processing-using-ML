@@ -28,10 +28,10 @@ if (selected == 'Grey Scale Image'):
     
     
     # getting the input data from the user
-    col1 = st.columns(1)
+   # col1 = st.columns(1)
     
-    with col1:
-        link = st.text_input('Enter The Image Address')
+    #with col1:
+      link = st.text_input('Enter The Image Address')
         
    
     
