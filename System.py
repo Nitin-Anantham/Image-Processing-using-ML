@@ -63,7 +63,7 @@ if (selected == 'Grey Scale Image'):
 
 
         
- if (selected == 'Resize Image'): 
+if (selected == 'Resize Image'): 
     st.title('Resize Images using ML')
     st.write("This Web App is to Resize your Images")
     
