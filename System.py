@@ -1,11 +1,33 @@
-
-
 from PIL import Image
 import streamlit as st
 from streamlit_option_menu import option_menu
 import cv2
 import numpy as np
 
+
+
+try:
+    # Streamlit < 0.65
+    from streamlit.ReportThread import get_report_ctx
+
+except ModuleNotFoundError:
+    try:
+        # Streamlit > 0.65
+        from streamlit.report_thread import get_report_ctx
+
+    except ModuleNotFoundError:
+        try:
+            # Streamlit > ~1.3
+            from streamlit.script_run_context import get_script_run_ctx as get_report_ctx
+
+        except ModuleNotFoundError:
+            try:
+                # Streamlit > ~1.8
+                from streamlit.scriptrunner.script_run_context import get_script_run_ctx as get_report_ctx
+
+            except ModuleNotFoundError:
+                # Streamlit > ~1.12
+                from streamlit.runtime.scriptrunner.script_run_context import get_script_run_ctx as get_report_ctx
 
 
 
@@ -19,7 +41,7 @@ with st.sidebar:
                            'Resize Image',
                            'Photo to Cartoon'
                            ],
-                          icons=['image-alt','image','vector-pen'],     # Streamlit suppports bootstrap icons 
+                          icons=['image-alt','image','vector-pen'],     # Streamlit supports bootstrap icons 
                           default_index=0)
     
                         # default_index = 0 , 
