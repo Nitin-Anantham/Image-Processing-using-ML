@@ -24,7 +24,7 @@ def convert1(inp_img):
     img_gray = cv2.cvtColor(inp_img , cv2.COLOR_BGR2GRAY)
     return(img_gray)
     
-def convert2(inp_img,d1,d2):
+def convert2(inp_img):
     img_resized = inp_img.resize((200,200))
     return(img_resized)
     
@@ -80,7 +80,7 @@ if (selected == 'Resize Image'):
     if st.button('Resize'): 
     
         img = Image.open(file_image)
-        resized_image = convert2(np.array(img),d1,d2)
+        resized_image = convert2(np.array(img))
     
         st.image(resized_image, caption='processed image')
         st.success("Processing Completed")
