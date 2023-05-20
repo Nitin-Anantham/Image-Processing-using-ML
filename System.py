@@ -31,7 +31,7 @@ if (selected == 'Grey Scale Image'):
    # col1 = st.columns(1)
     
     #with col1:
-      link = st.text_input('Enter The Image Address')
+    link = st.text_input('Enter The Image Address')
         
    
     
