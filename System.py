@@ -24,8 +24,8 @@ def convert1(inp_img):
     img_gray = cv2.cvtColor(inp_img , cv2.COLOR_BGR2GRAY)
     return(img_gray)
     
-def convert2(inp_img):
-    img_resized = inp_img.resize((200,200))
+def convert2(inp_img,d1,d2):
+    img_resized = inp_img.resize((d1,d2))
     return(img_resized)
     
 
@@ -63,9 +63,9 @@ if (selected == 'Resize Image'):
     st.title('Resize Images using ML')
     st.write("This Web App is to Resize your Images")
     
-    file_image = st.sidebar.file_uploader("Upload Your Photo",type = ['jpeg','jpg','png'])
+    file_image1 = st.sidebar.file_uploader("Upload Your Photo",type = ['jpeg','jpg','png'])
         
-    if file_image is None:
+    if file_image1 is None:
            st.write("Please Upload Your Image File")
     
     col1, col2 = st.columns(2)
@@ -79,16 +79,16 @@ if (selected == 'Resize Image'):
     
     if st.button('Resize'): 
     
-        img = Image.open(file_image)
-        resized_image = convert2(np.array(img))
+        img1 = Image.open(file_image1)
+        resized_image = convert2(np.array(img1),d1,d2)
     
         st.image(resized_image, caption='processed image')
         st.success("Processing Completed")
     
     
     if st.button("Download Sketch Images"):
-        im_pil = Image.fromarray(resized_image)
-        im_pil.save('final_image.jpeg')
+        im_pil1 = Image.fromarray(resized_image)
+        im_pil1.save('final_image.jpeg')
         st.write('Download completed')    
     
     
