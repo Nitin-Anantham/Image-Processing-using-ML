@@ -34,10 +34,10 @@ if (selected == 'Grey Scale Image'):
     st.title('Converting To Grey Scale using ML')
     st.write("This Web App is to convert your Rgb Pictures to GrayScale Images")
     
-   file_image = st.sidebar.file_uploader("Upload Your Photo",type = ['jpeg','jpg','png'])
+    file_image = st.sidebar.file_uploader("Upload Your Photo",type = ['jpeg','jpg','png'])
         
-   if file_image is None:
-          st.write("Please Upload Your Image File")
+    if file_image is None:
+           st.write("Please Upload Your Image File")
     
     
     
