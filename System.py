@@ -10,40 +10,26 @@ import numpy as np
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # sidebar for navigation()
 with st.sidebar:
     
     selected = option_menu('Image Processing',
                           
                           ['Grey Scale Image',
-                           'Resize Image'
+                           'Resize Image',
+                           'Photo to Cartoon'
                            ],
-                          icons=['image-alt','image'],     # Streamlit suppports bootstrap icons 
+                          icons=['image-alt','image','vector-pen'],     # Streamlit suppports bootstrap icons 
                           default_index=0)
     
                         # default_index = 0 , 
     
-def convert(inp_img):
+def convert1(inp_img):
     img_gray = cv2.cvtColor(inp_img , cv2.COLOR_BGR2GRAY)
     return(img_gray)
     
-    
+def convert2(inp_img):
+    img_resized = inp_img.resize((d1,d2))
     
     
 
@@ -61,7 +47,7 @@ if (selected == 'Grey Scale Image'):
     
     
     
-    # creating a button for Prediction
+    
     
     if st.button('Convert'):
         img = Image.open(file_image)
@@ -76,3 +62,36 @@ if (selected == 'Grey Scale Image'):
         st.write('Download completed')
 
 
+        
+ if (selected == 'Resize Image'): 
+    st.title('Resize Images using ML')
+    st.write("This Web App is to Resize your Images")
+    
+    file_image = st.sidebar.file_uploader("Upload Your Photo",type = ['jpeg','jpg','png'])
+        
+    if file_image is None:
+           st.write("Please Upload Your Image File")
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        d1 = st.text_input("Enter Height")
+        d2 = st.text_input("Enter Width")
+    
+    
+    if st.button('Resize'): 
+    
+        img = Image.open(file_image)
+        resized_image = img.resize((d1,d2))
+    
+        st.image(resized_image, caption='processed image')
+        st.success("Processing Completed")
+    
+    
+    if st.button("Download Sketch Images"):
+        im_pil = Image.fromarray(resized_image)
+        im_pil.save('final_image.jpeg')
+        st.write('Download completed')    
+    
+    
+        
