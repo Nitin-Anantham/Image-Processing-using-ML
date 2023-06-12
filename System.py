@@ -117,17 +117,12 @@ if (selected == 'Get A Pencil Sketch'):
         with two:
             st.write("Pencil Sketch")
             st.image(final_sketch, use_column_width=True)
-       # if st.button("Download Sketch Images"):
-          #  im_pil = Image.fromarray(final_sketch)
-           # if im_pil.save('final_image.jpeg'):
+        if st.button("Download Sketch Images"):
+            im_pil = Image.fromarray(final_sketch)
+            im_pil = im_pil.save('final_image.jpeg')
 
-                #st.write('Download completed')
-        img = Image.open(final_sketch)        
-        btn = st.download_button(
-                label="Download image",
-                data=img,
-                file_name="imagename.png",
-                mime="image/png")
+            st.write('Download completed')
+      
 
     else:
         st.write("Image Not Captured , Please Try Again!")
