@@ -13,7 +13,7 @@ with st.sidebar:
                           
                           ['Grey Scale Image',
                            'Resize Image',
-                           'Photo to Cartoon'
+                           'Get A Pencil Sketch'
                            ],
                           icons=['image-alt','image','vector-pen'],     # Streamlit supports bootstrap icons 
                           default_index=0)
@@ -27,7 +27,16 @@ def convert1(inp_img):
 def convert2(inp_img1,d1,d2):
     img_resized = inp_img1.resize((d1,d2))
     return(img_resized)
-    
+
+def dodgeV2(x, y):
+    return cv2.divide(x, 255 - y, scale=256)
+
+def pencilsketch(inp_img):
+    img_gray = cv2.cvtColor(inp_img, cv2.COLOR_BGR2GRAY)
+    img_invert = cv2.bitwise_not(img_gray)
+    img_smoothing = cv2.GaussianBlur(img_invert, (21, 21),sigmaX=0, sigmaY=0)
+    final_img = dodgeV2(img_gray, img_smoothing)
+    return(final_img)
 
 if (selected == 'Grey Scale Image'):
     
@@ -41,21 +50,20 @@ if (selected == 'Grey Scale Image'):
            st.write("Please Upload Your Image File")
     
     
+    else:
     
     
-    
-    
-    if st.button('Convert'):
-        img = Image.open(file_image)
-        grayscale_image = convert1(np.array(img))   #Converting Image to Numpy Array
+        if st.button('Convert'):
+            img = Image.open(file_image)
+            grayscale_image = convert1(np.array(img))   #Converting Image to Numpy Array
         
-        st.image(grayscale_image, caption='processed image')
-        st.success("Processing Completed")
+            st.image(grayscale_image, caption='processed image')
+            st.success("Processing Completed")
      
-    if st.button("Download Sketch Images"):
-        im_pil = Image.fromarray(grayscale_image)  #Displaying Image From Numpy Array
-        im_pil.save('final_image.jpeg')
-        st.write('Download completed')
+        if st.button("Download Sketch Images"):
+            im_pil = Image.fromarray(grayscale_image)  #Displaying Image From Numpy Array
+            im_pil.save('final_image.jpeg')
+            st.write('Download completed')
 
 
         
@@ -90,5 +98,29 @@ if (selected == 'Resize Image'):
         im_pil1.save('final_image.jpeg')
         st.write('Download completed')    
     
-    
+
+if (selected == 'Get A Pencil Sketch'):  
+    st.title("PencilSketcher")
+    st.write("Convert your photos to realistic Pencil Sketches")  
+
+    file_image = st.camera_input(label = "Take a pic of yourself")
+
+    if file_image:
+    input_img = Image.open(file_image)
+    final_sketch = pencilsketch(np.array(input_img))
+    one, two = st.columns(2)
+        with one:
+            st.write("User Input")
+            st.image(input_img)
+        with two:
+            st.write("Pencil Sketch")
+            st.image(final_sketch, use_column_width=True)
+        if st.button("Download Sketch Images"):
+            im_pil = Image.fromarray(final_sketch)
+            im_pil.save('final_image.jpeg')
+            st.write('Download completed')
+   
+
+    else:
+        st.write("Image Not Captured , Please Try Again!")
         
