@@ -103,7 +103,7 @@ if (selected == 'Get A Pencil Sketch'):
     st.title("PencilSketcher")
     st.write("Convert your photos to realistic Pencil Sketches")  
 
-    file_image = st.camera_input(label = "Take a pic of yourself")
+    #file_image = st.camera_input(label = "Take a pic of yourself")
 
     if file_image:
         input_img = Image.open(file_image)
