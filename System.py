@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 
 
-
+file_image = st.camera_input(label = "Take a pic of you to be sketched out")
 # sidebar for navigation()
 with st.sidebar:
     
@@ -103,7 +103,7 @@ if (selected == 'Get A Pencil Sketch'):
     
     st.title("PencilSketcher")
     st.write("Convert your photos to realistic Pencil Sketches")  
-    file_image = st.camera_input(label = "Take a pic of you to be sketched out")
+    #file_image = st.camera_input(label = "Take a pic of you to be sketched out")
     #file_image = st.sidebar.file_uploader("Upload Your Photo to be resized",type = ['jpeg','jpg','png'])
     
     
