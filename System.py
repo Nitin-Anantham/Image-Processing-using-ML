@@ -122,7 +122,7 @@ if (selected == 'Get A Pencil Sketch'):
            # if im_pil.save('final_image.jpeg'):
 
                 #st.write('Download completed')
-        img = Image.open(final_sketch)        
+        mg = Image.open(final_sketch)        
         btn = st.download_button(
                 label="Download image",
                 data=img,
