@@ -100,10 +100,9 @@ if (selected == 'Resize Image'):
     
 
 if (selected == 'Get A Pencil Sketch'):  
-    try:
+   
     st.title("PencilSketcher")
     st.write("Convert your photos to realistic Pencil Sketches")  
-
     file_image = st.camera_input("Take a picture")
 
     if file_image:
@@ -125,6 +124,5 @@ if (selected == 'Get A Pencil Sketch'):
     else:
         st.write("Image Not Captured , Please Try Again!")
     
-    except:
-        print("Error!!")
+   
      
