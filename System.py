@@ -103,8 +103,8 @@ if (selected == 'Get A Pencil Sketch'):
     
     st.title("PencilSketcher")
     st.write("Convert your photos to realistic Pencil Sketches")  
-    #file_image = st.camera_input("Take a picture")
-    file_image = st.sidebar.file_uploader("Upload Your Photo to be resized",type = ['jpeg','jpg','png'])
+    file_image = st.camera_input(label = "Take a pic of you to be sketched out")
+    #file_image = st.sidebar.file_uploader("Upload Your Photo to be resized",type = ['jpeg','jpg','png'])
     
     
     if file_image:
@@ -113,7 +113,7 @@ if (selected == 'Get A Pencil Sketch'):
         one, two = st.columns(2)
         with one:
             st.write("User Input")
-            st.image(input_img)
+            st.image(input_img, use_column_width=True)
         with two:
             st.write("Pencil Sketch")
             st.image(final_sketch, use_column_width=True)
