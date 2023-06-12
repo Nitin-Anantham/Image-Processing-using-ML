@@ -100,14 +100,14 @@ if (selected == 'Resize Image'):
     
 
 if (selected == 'Get A Pencil Sketch'):  
-   
+    file_image = st.camera_input("Take a picture")
     st.title("PencilSketcher")
     st.write("Convert your photos to realistic Pencil Sketches")  
     #file_image = st.camera_input("Take a picture")
     #file_image = st.sidebar.file_uploader("Upload Your Photo to be resized",type = ['jpeg','jpg','png'])
-    img_file_buffer = st.camera_input("Take a picture")
-
-    if img_file_buffer is not None:
+    
+    
+    if file_image:
         input_img = Image.open(file_image)
         final_sketch = pencilsketch(np.array(input_img))
         one, two = st.columns(2)
