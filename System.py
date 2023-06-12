@@ -106,9 +106,9 @@ if (selected == 'Get A Pencil Sketch'):
     file_image = st.camera_input(label = "Take a pic of yourself")
 
     if file_image:
-    input_img = Image.open(file_image)
-    final_sketch = pencilsketch(np.array(input_img))
-    one, two = st.columns(2)
+        input_img = Image.open(file_image)
+        final_sketch = pencilsketch(np.array(input_img))
+        one, two = st.columns(2)
         with one:
             st.write("User Input")
             st.image(input_img)
