@@ -62,7 +62,7 @@ if (selected == 'Grey Scale Image'):
             st.success("Processing Completed")
      
         if st.button("Download Sketch Images"):
-            im_pil = Image.fromarray(grayscale_image)  #Displaying Image From Numpy Array
+            #im_pil = Image.fromarray(grayscale_image)  #Displaying Image From Numpy Array
             im_pil.save('final_image.jpeg')
             st.write('Download completed')
            # st.download_button(
