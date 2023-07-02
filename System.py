@@ -63,14 +63,14 @@ if (selected == 'Grey Scale Image'):
      
         if st.button("Download Sketch Images"):
             im_pil = Image.fromarray(grayscale_image)  #Displaying Image From Numpy Array
-            im_pil.save(image, format="PNG"')
-           # st.write('Download completed')
-            st.download_button(
-               label="Download",
-               data=image,
-               file_name="grayscale_image.jpg",
-               mime="image/jpeg"
-              )
+            im_pil.save('final_image.jpeg')
+            st.write('Download completed')
+           # st.download_button(
+              # label="Download",
+              # data=image,
+              # file_name="grayscale_image.jpg",
+              # mime="image/jpeg"
+              #)
 
         
 if (selected == 'Resize Image'): 
