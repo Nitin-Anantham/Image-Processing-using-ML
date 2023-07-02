@@ -67,7 +67,7 @@ if (selected == 'Grey Scale Image'):
            # st.write('Download completed')
             st.download_button(
                label="Download",
-               data=grayscale_image,
+               data=image_path,
                file_name="grayscale_image.jpg",
                mime="image/jpeg"
               )
